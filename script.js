@@ -1,4 +1,4 @@
-        const sqmeterInput = document.getElementById('sqmeter');
+const sqmeterInput = document.getElementById('sqmeter');
         const resultCard = document.getElementById('resultCard');
         const raiElement = document.getElementById('rai');
         const nganElement = document.getElementById('ngan');
@@ -7,16 +7,12 @@
 
         // ฟังก์ชันแปลงค่า
         function convertArea() {
-            const value = sqmeterInput.value.trim();
-    if (value === '') {
-        resultCard.style.display = 'none';
-        return;
-    }
-    const sqmeter = parseFloat(value);
-    if (isNaN(sqmeter) || sqmeter < 0) {
-        resultCard.style.display = 'none';
-        return;
-    }
+            const sqmeter = parseFloat(sqmeterInput.value);
+            
+            if (isNaN(sqmeter) || sqmeter < 0) {
+                resultCard.style.display = 'none';
+                return;
+            }
 
             // การแปลง
             const totalWah = sqmeter / 4; // 1 ตารางวา = 4 ตารางเมตร
@@ -52,8 +48,8 @@
         }
 
         // Event listeners
-        
-        
+        sqmeterInput.addEventListener('input', convertArea);
+        sqmeterInput.addEventListener('keyup', convertArea);
 
         // โฟกัสที่ input เมื่อโหลดหน้า
         window.addEventListener('load', () => {
