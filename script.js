@@ -8,7 +8,10 @@
 
         // ฟังก์ชันแปลงค่า
         function convertArea() {
-            const sqmeter = parseFloat(sqmeterInput.value);
+        const sqmeter = document.getElementById('sqmeter');
+          input.addEventListener('input', () => {
+            input.value = input.value.replace(/[^0-9]/g, '');
+  });
             
             if (isNaN(sqmeter) || sqmeter < 0) {
                 resultCard.style.display = 'none';
